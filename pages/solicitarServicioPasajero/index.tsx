@@ -9,6 +9,7 @@ export const SolicitarServicioPasajero = () => {
     event.preventDefault();
     console.log(origen);
     console.log(destino);
+    window.open('/clienteAceptaSolicitud', '_self')
   };
 
   return (

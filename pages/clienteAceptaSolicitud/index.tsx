@@ -1,8 +1,15 @@
 import React from 'react';
 
 export const ClienteAceptaSolicitud = () => {
-  const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
+
+  const handleAccept = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+    alert('Servicio Aceptado')
+  };  
+
+  const handleReject = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    window.open('/solicitarServicioPasajero', '_self')
   };  
   return (
     <div className='bg-[#007bf1] flex flex-col items-center h-screen w-screen'>
@@ -58,13 +65,13 @@ export const ClienteAceptaSolicitud = () => {
           </div>
           <button
             className='m-4 px-5 py-1  bg-[#0979ea] rounded-lg text-[#f4f0f0] text-2xl hover:bg-[#0994ea]'
-            onClick={handleSubmit}
+            onClick={handleAccept}
           >
             Aceptar
           </button>
           <button
             className='m-4 px-5 py-1  bg-[#0979ea] rounded-lg text-[#f4f0f0] text-2xl hover:bg-[#0994ea]'
-            onClick={handleSubmit}
+            onClick={handleReject}
           >
             Rechazar
           </button>
