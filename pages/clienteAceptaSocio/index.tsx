@@ -1,16 +1,14 @@
 import React from 'react';
 
-export const ClienteAceptaSolicitud = () => {
-  const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
+export const ClienteAceptaSocio = () => {
+  const handleAccept = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    {/*console.log(origen);
-  console.log(destino);*/}
-    window.open('/clienteAceptaSocio', '_self');
+    alert('Socio Aceptado');
   };
 
   const handleReject = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    window.open('/solicitarServicioPasajero', '_self');
+    window.open('/clienteAceptaSolicitud', '_self');
   };
   return (
     <div className='bg-[#007bf1] flex flex-col items-center h-screen w-screen'>
@@ -37,38 +35,33 @@ export const ClienteAceptaSolicitud = () => {
       </div>
       <div className='h-[644px] w-[1144px] m-10 bg-[url(/img/MapaFull.png)] rounded-sm'>
         <div className='bg-white rounded-lg mx-10 mt-80 text-center'>
+          <div className='w-[1059px] h-[60px]'>
+            <div className='fixed w-[1059px] h-[60px] top-200 left-100 bg-[#1f9c14] rounded-[31px_31px_0px_0px]' />
+            <div className='w-[637px] h-[38px]'>
+              <p className="fixed top-230 left-180 [font-family:'Roboto-Regular',Helvetica] font-normal text-white text-[25px] tracking-[0] leading-[normal] whitespace-nowrap">
+                ¡Te hemos encontrado el socio más cercano!
+              </p>
+            </div>
+          </div>
           <span className="[font-family:'Roboto-Bold',Helvetica] font-bold text-black text-3xl">
-            $30.000 COP
+            Chevrolet Sail
           </span>
           <div className='flex justify-center m-2'>
             <img
-              className=' w-[27px] h-[32px] top-0 left-0 object-cover'
+              className=' w-[100px] h-[100px] top-0 left-0 object-cover'
               alt='My Location'
-              src='/img/my_location.png'
+              src='/img/senor.png'
             />
             <span className="[font-family:'Roboto-Bold',Helvetica] text-black text-2xl ml-2">
-              Origen:
+              Martín Sanín
             </span>
             <p className="text-left pl-5 w-[501px] top-0 left-0 [font-family:'Roboto-Regular',Helvetica] font-normal text-[#676363] text-[18px] tracking-[0] leading-[normal]">
-              Cl. 73 #73A-79, Pilarica, Medellín, Robledo, Medellín, Antioquia.
-            </p>
-          </div>
-          <div className='flex justify-center m-2'>
-            <img
-              className=' w-[27px] h-[32px] top-0 left-0 object-cover'
-              alt='My Location on'
-              src='/img/location_on.png'
-            />
-            <span className="[font-family:'Roboto-Bold',Helvetica] text-black text-2xl ml-2">
-              Destino:
-            </span>
-            <p className="text-left pl-4 w-[501px] top-0 left-0 [font-family:'Roboto-Regular',Helvetica] font-normal text-[#676363] text-[18px] tracking-[0] leading-[normal]">
-              Cl. 67 #53-108, Aranjuez, Medellín, Aranjuez, Medellín, Antioquia.
+              (Modelo 2013. JHS-342)
             </p>
           </div>
           <button
             className='m-4 px-5 py-1  bg-[#0979ea] rounded-lg text-[#f4f0f0] text-2xl hover:bg-[#0994ea]'
-            onClick={handleSubmit}
+            onClick={handleAccept}
           >
             Aceptar
           </button>
@@ -84,4 +77,4 @@ export const ClienteAceptaSolicitud = () => {
   );
 };
 
-export default ClienteAceptaSolicitud;
+export default ClienteAceptaSocio;

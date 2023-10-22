@@ -39,12 +39,19 @@ export const Paquete = () => {
   return (
     <div className='bg-[#007bf1] flex flex-row justify-center w-full'>
       <div className='bg-[#007bf1] w-[1280px] h-[832px] relative'>
+      <button>
+          <img
+            className='absolute w-[76px] h-[75px] top-[26px] left-[55px] hover:opacity-80'
+            alt='Menu'
+            src='/img/menu.png'
+          />
+        </button>
         <div className="absolute h-[75px] top-[25px] left-[153px] [font-family:'Roboto-Regular',Helvetica] font-normal text-[#eff0f7] text-[64px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
           SSMU
         </div>
         <button>
           <img
-            className='absolute w-[76px] h-[75px] top-[26px] left-[1167px]'
+            className='absolute w-[76px] h-[75px] top-[26px] left-[1140px] hover:opacity-80'
             alt='Accessibility'
             src='/img/accessibility_new.png'
           />
@@ -111,7 +118,7 @@ export const Paquete = () => {
             alt='My location'
             src='/img/my_location.png'
           />
-          <div className="absolute top-[504px] left-[128px] [font-family:'Roboto-Regular',Helvetica] font-normal text-black text-[32px] tracking-[0] leading-[normal] whitespace-nowrap">
+          <div className="absolute top-[504px] left-[128px] [font-family:'Roboto-Regular',Helvetica] font-normal text-black text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
             <span className="[font-family:'Roboto-Bold',Helvetica] text-black text-2xl ml-2">
               Destino:
             </span>
@@ -123,7 +130,7 @@ export const Paquete = () => {
               value={destino}
             />
           </div>
-          <div className="absolute top-[420px] left-[143px] [font-family:'Roboto-Regular',Helvetica] font-normal text-black text-[32px] tracking-[0] leading-[normal] whitespace-nowrap">
+          <div className="absolute top-[420px] left-[143px] [font-family:'Roboto-Regular',Helvetica] font-normal text-black text-[20px] tracking-[0] leading-[normal] whitespace-nowrap">
             <span className="[font-family:'Roboto-Bold',Helvetica] text-black text-2xl ml-2">
               Origen:
             </span>
@@ -170,8 +177,12 @@ export const Paquete = () => {
               Solicitar
             </button>    
           </div>
-          <div className='absolute w-[33px] h-[33px] top-[414px] left-[646px] bg-white rounded-[5px] border-2 border-solid border-black' />
-          <div className='absolute w-[33px] h-[33px] top-[413px] left-[871px] bg-white rounded-[5px] border-2 border-solid border-black' />
+          <button>
+            <div className='absolute w-[33px] h-[33px] top-[414px] left-[646px] bg-white rounded-[5px] border-2 border-solid border-black' />
+          </button>
+          <button>
+            <div className='absolute w-[33px] h-[33px] top-[413px] left-[871px] bg-white rounded-[5px] border-2 border-solid border-black' />
+          </button>
         </div>
       </div>
     </div>

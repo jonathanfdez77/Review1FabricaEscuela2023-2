@@ -29,7 +29,7 @@ export const SolicitarServicioPasajero = () => {
         </div>
         <button>
           <img
-            className=' w-[76px] h-[75px] top-0 left-100'
+            className=' w-[76px] h-[75px] top-0 left-100 hover:opacity-80'
             alt='Accessibility'
             src='/img/accessibility_new.png'
           />
