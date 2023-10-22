@@ -13,11 +13,11 @@ export const Viaje = () => {
           src='/img/accessibility_new.png'
         />
         <div className='absolute w-[1144px] h-[665px] top-[105px] left-[68px] bg-[url(/img/MapaFull.png)] bg-cover bg-[50%_50%]'>
-        <img
+          <img
             className='absolute w-[1144px] h-[665px] top-[105px] left-[68px]'
             alt='Mapa'
             src='/img/MapaFull.png'
-        />
+          />
           <img
             className='absolute w-[402px] h-[187px] top-[234px] left-[343px]'
             alt='Ellipse'
