@@ -1,4 +1,4 @@
-{/*import React from 'react';
+import React from 'react';
 
 export const Viaje = () => {
   return (
@@ -12,7 +12,7 @@ export const Viaje = () => {
           alt='Accessibility'
           src='/img/accessibility_new.png'
         />
-        {/*<div className='absolute w-[1144px] h-[665px] top-[105px] left-[68px] bg-[url(rectangle-1.png)] bg-cover bg-[50%_50%]'>
+        <div className='absolute w-[1144px] h-[665px] top-[105px] left-[68px] bg-[url(/img/MapaFull.png)] bg-cover bg-[50%_50%]'>
         <img
             className='absolute w-[1144px] h-[665px] top-[105px] left-[68px]'
             alt='Mapa'
@@ -111,7 +111,8 @@ export const Viaje = () => {
           <div className='absolute w-[33px] h-[33px] top-[413px] left-[871px] bg-white rounded-[5px] border-2 border-solid border-black' />
         </div>
       </div>
+    </div>  
   );
 };
 
-export default Viaje;*/}
+export default Viaje;
