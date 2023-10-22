@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 
-export const Viaje = () => {
+export const Paquete = () => {
   const [origen, setOrigen] = useState('');
   const [destino, setDestino] = useState('');
   const [condiciones, setCondiciones] = useState('');
@@ -39,13 +39,6 @@ export const Viaje = () => {
   return (
     <div className='bg-[#007bf1] flex flex-row justify-center w-full'>
       <div className='bg-[#007bf1] w-[1280px] h-[832px] relative'>
-      <button>
-          <img
-            className='h-20 hover:opacity-80'
-            alt='Menu'
-            src='/img/menu.png'
-          />
-        </button>
         <div className="absolute h-[75px] top-[25px] left-[153px] [font-family:'Roboto-Regular',Helvetica] font-normal text-[#eff0f7] text-[64px] text-center tracking-[0] leading-[normal] whitespace-nowrap">
           SSMU
         </div>
@@ -57,8 +50,13 @@ export const Viaje = () => {
           />
         </button>
         <div className='absolute w-[1144px] h-[665px] top-[105px] left-[68px] bg-[url(/img/MapaFull.png)] bg-cover bg-[50%_50%] rounded-sm'>
+          <img
+            className='absolute w-[402px] h-[187px] top-[234px] left-[343px]'
+            alt='Ellipse'
+            src='ellipse-1.svg'
+          />
           <div className='absolute w-[1057px] h-[354px] top-[270px] left-[47px] bg-white rounded-[31px] border border-solid border-[#007bf1]' />
-          <div className='absolute w-[255px] h-[96px] top-[298px] left-[110px] bg-[#bed0ff] rounded-[10px] border-2 border-solid border-[#007bf1]' />
+          <div className='absolute w-[255px] h-[96px] top-[298px] left-[820px] bg-[#bed0ff] rounded-[10px] border-2 border-solid border-[#007bf1]' />
           <div className='inline-flex items-center gap-[182px] absolute top-[313px] left-[156px]'>
             <button
               onClick={handleSubmitViaje}
@@ -180,4 +178,4 @@ export const Viaje = () => {
   );
 };
 
-export default Viaje;
+export default Paquete;

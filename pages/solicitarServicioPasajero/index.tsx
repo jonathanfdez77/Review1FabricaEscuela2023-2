@@ -7,9 +7,9 @@ export const SolicitarServicioPasajero = () => {
 
   const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    console.log(origen);
-    console.log(destino);
-    window.open('/clienteAceptaSolicitud', '_self')
+    {/*console.log(origen);
+  console.log(destino);*/}
+    window.open('/clienteAceptaSolicitud', '_self');
   };
 
   return (
@@ -27,11 +27,13 @@ export const SolicitarServicioPasajero = () => {
             SSMU
           </div>
         </div>
-        <img
-          className=' w-[76px] h-[75px] top-0 left-100'
-          alt='Accessibility'
-          src='/img/accessibility_new.png'
-        />
+        <button>
+          <img
+            className=' w-[76px] h-[75px] top-0 left-100'
+            alt='Accessibility'
+            src='/img/accessibility_new.png'
+          />
+        </button>
       </div>
       <div className='h-[644px] w-[1144px] m-10 bg-[url(/img/MapaFull.png)] rounded-sm'>
         <div className='bg-white rounded-lg mx-10 mt-80 text-center'>
