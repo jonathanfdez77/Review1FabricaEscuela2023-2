@@ -7,7 +7,7 @@ export const ClienteAceptaSocio = () => {
     event.preventDefault();
     try {
       // Llama a la función para aceptar el servicio
-      const response = await aceptarServicio(1); 
+      const response = await aceptarServicio(3); 
       alert('Socio Aceptado');
     } catch (error) {
       // Maneja el error si la solicitud falla
@@ -20,11 +20,11 @@ export const ClienteAceptaSocio = () => {
     try {
       // Llama a la función para rechazar el servicio
       const response = await rechazarServicio(1); 
-      window.open('/clienteAceptaSolicitud', '_self');
     } catch (error) {
       // Maneja el error si la solicitud falla
       console.error('Error al rechazar el servicio', error);
     }
+    window.open('/solicitarServicioPasajero', '_self');
   };
   return (
     <div className='bg-[#007bf1] flex flex-col items-center h-screen w-screen'>

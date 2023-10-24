@@ -1,14 +1,45 @@
-import React from 'react';
-import { aceptarServicio, rechazarServicio } from '../../services/ServicioComponent';
+import React, { useState, useEffect } from 'react';
+import { aceptarServicio, rechazarServicio, SolicitarValorServicio } from '../../services/ServicioComponent'; // Importa la función de axios con las conexiones
 
 export const ClienteAceptaSolicitud = () => {
+  const [precioViaje, setPrecioViaje] = useState(0);
+  const [origen, setOrigen] = useState('');
+  const [destino, setDestino] = useState('');
+
+  useEffect(() => {
+    async function fetchPrecioViaje() {
+      try {
+        const response = await SolicitarValorServicio(3); // Reemplaza "3" con el ID del servicio
+        setPrecioViaje(response);
+      } catch (error) {
+        console.error('Error al obtener el precio del viaje', error);
+      }
+    }
+
+    fetchPrecioViaje();
+    
+    // Leer las direcciones de la URL
+    const searchParams = new URLSearchParams(window.location.search);
+    const origenFromURL = searchParams.get('origen');
+    const destinoFromURL = searchParams.get('destino');
+    
+    if (origenFromURL && destinoFromURL) {
+      // Decodificar las direcciones desde la URL
+      const decodedOrigen = decodeURIComponent(origenFromURL);
+      const decodedDestino = decodeURIComponent(destinoFromURL);
+      
+      setOrigen(decodedOrigen);
+      setDestino(decodedDestino);
+    }
+  }, []);
+
   const handleSubmit = async (event: { preventDefault: () => void; }) => {
     event.preventDefault();
     try {
       // Realiza la acción "Aceptar" llamando a la función adecuada
-      const response = await aceptarServicio(1); 
-
+      const response = await aceptarServicio(3); // Reemplaza "1" con el ID del servicio
       alert('Solicitud Aceptada');
+      window.open('/clienteAceptaSocio', '_self');
     } catch (error) {
       // Maneja el error si la solicitud falla
       console.error('Error al aceptar la solicitud', error);
@@ -19,13 +50,13 @@ export const ClienteAceptaSolicitud = () => {
     event.preventDefault();
     try {
       // Realiza la acción "Rechazar" llamando a la función adecuada
-      const response = await rechazarServicio(1); 
-   
+      const response = await rechazarServicio(1); // Reemplaza "1" con el ID del servicio
       alert('Solicitud Rechazada');
     } catch (error) {
       // Maneja el error si la solicitud falla
       console.error('Error al rechazar la solicitud', error);
     }
+    window.open('/solicitarServicioPasajero', '_self');
   };
   return (
     <div className='bg-[#007bf1] flex flex-col items-center h-screen w-screen'>
@@ -53,11 +84,11 @@ export const ClienteAceptaSolicitud = () => {
       <div className='h-[644px] w-[1144px] m-10 bg-[url(/img/MapaFull.png)] rounded-sm'>
         <div className='bg-white rounded-lg mx-10 mt-80 text-center'>
           <span className="[font-family:'Roboto-Bold',Helvetica] font-bold text-black text-3xl">
-            $30.000 COP
+            {`$${precioViaje} COP`}
           </span>
-          <div className='flex justify-center m-2'>
+              <div className='flex justify-center m-2'>
             <img
-              className=' w-[27px] h-[32px] top-0 left-0 object-cover'
+              className='w-[27px] h-[32px] top-0 left-0 object-cover'
               alt='My Location'
               src='/img/my_location.png'
             />
@@ -65,12 +96,12 @@ export const ClienteAceptaSolicitud = () => {
               Origen:
             </span>
             <p className="text-left pl-5 w-[501px] top-0 left-0 [font-family:'Roboto-Regular',Helvetica] font-normal text-[#676363] text-[18px] tracking-[0] leading-[normal]">
-              Cl. 73 #73A-79, Pilarica, Medellín, Robledo, Medellín, Antioquia.
+              {origen}
             </p>
           </div>
           <div className='flex justify-center m-2'>
             <img
-              className=' w-[27px] h-[32px] top-0 left-0 object-cover'
+              className='w-[27px] h-[32px] top-0 left-0 object-cover'
               alt='My Location on'
               src='/img/location_on.png'
             />
@@ -78,7 +109,7 @@ export const ClienteAceptaSolicitud = () => {
               Destino:
             </span>
             <p className="text-left pl-4 w-[501px] top-0 left-0 [font-family:'Roboto-Regular',Helvetica] font-normal text-[#676363] text-[18px] tracking-[0] leading-[normal]">
-              Cl. 67 #53-108, Aranjuez, Medellín, Aranjuez, Medellín, Antioquia.
+              {destino}
             </p>
           </div>
           <button

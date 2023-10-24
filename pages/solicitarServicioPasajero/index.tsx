@@ -4,6 +4,7 @@ import { solicitarServicio } from '../../services/ServicioComponent'; // Importa
 export const SolicitarServicioPasajero = () => {
   const [origen, setOrigen] = useState('');
   const [destino, setDestino] = useState('');
+  
 
   const handleSubmit = async (event: { preventDefault: () => void; }) => {
     event.preventDefault();
@@ -25,16 +26,14 @@ export const SolicitarServicioPasajero = () => {
     };
   
     try {
-
       const response = await solicitarServicio(servicio);
-  
-      window.open('/clienteAceptaSolicitud', '_self');
+      const direccionOrigen = encodeURIComponent(origen); // Codificar la dirección para la URL
+      const direccionDestino = encodeURIComponent(destino); // Codificar la dirección para la URL
+      window.open(`/clienteAceptaSolicitud?origen=${direccionOrigen}&destino=${direccionDestino}`, '_self');
     } catch (error) {
-
       console.error('Error al solicitar el servicio', error);
     }
   };
-  
 
   return (
     <div className='bg-[#007bf1] flex flex-col items-center h-screen w-screen'>
