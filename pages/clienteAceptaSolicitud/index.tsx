@@ -1,16 +1,31 @@
 import React from 'react';
+import { aceptarServicio, rechazarServicio } from '../../services/ServicioComponent';
 
 export const ClienteAceptaSolicitud = () => {
-  const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleSubmit = async (event: { preventDefault: () => void; }) => {
     event.preventDefault();
-    {/*console.log(origen);
-  console.log(destino);*/}
-    window.open('/clienteAceptaSocio', '_self');
+    try {
+      // Realiza la acción "Aceptar" llamando a la función adecuada
+      const response = await aceptarServicio(1); 
+
+      alert('Solicitud Aceptada');
+    } catch (error) {
+      // Maneja el error si la solicitud falla
+      console.error('Error al aceptar la solicitud', error);
+    }
   };
 
-  const handleReject = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleReject = async (event: { preventDefault: () => void; }) => {
     event.preventDefault();
-    window.open('/solicitarServicioPasajero', '_self');
+    try {
+      // Realiza la acción "Rechazar" llamando a la función adecuada
+      const response = await rechazarServicio(1); 
+   
+      alert('Solicitud Rechazada');
+    } catch (error) {
+      // Maneja el error si la solicitud falla
+      console.error('Error al rechazar la solicitud', error);
+    }
   };
   return (
     <div className='bg-[#007bf1] flex flex-col items-center h-screen w-screen'>

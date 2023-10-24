@@ -1,16 +1,40 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { solicitarServicio } from '../../services/ServicioComponent'; // Importa la función de axios con las conexiones
 
 export const SolicitarServicioPasajero = () => {
   const [origen, setOrigen] = useState('');
   const [destino, setDestino] = useState('');
 
-  const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleSubmit = async (event: { preventDefault: () => void; }) => {
     event.preventDefault();
-    {/*console.log(origen);
-  console.log(destino);*/}
-    window.open('/clienteAceptaSolicitud', '_self');
+  
+    const servicio = {
+      usuario: {
+        idUsuario: 1, 
+      },
+      ubicacionOrigen: {
+        direccion: origen,
+      },
+      ubicacionDestino: {
+        direccion: destino,
+      },
+      fechaInicio: new Date().toISOString(), 
+      idTipoServicio: 1, 
+      detalles: 'Detalles del servicio', 
+  
+    };
+  
+    try {
+
+      const response = await solicitarServicio(servicio);
+  
+      window.open('/clienteAceptaSolicitud', '_self');
+    } catch (error) {
+
+      console.error('Error al solicitar el servicio', error);
+    }
   };
+  
 
   return (
     <div className='bg-[#007bf1] flex flex-col items-center h-screen w-screen'>
