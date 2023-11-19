@@ -1,19 +1,27 @@
-import React from 'react';
+// Importaciones de React y useState
 import { useState } from 'react';
 
+// Definición del componente funcional SolicitarServicioPasajero
 export const SolicitarServicioPasajero = () => {
+  // Estado local para el origen y destino de la solicitud
   const [origen, setOrigen] = useState('');
   const [destino, setDestino] = useState('');
 
+  // Función que maneja el envío del formulario al hacer clic en el botón
   const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
+    // Previene el comportamiento predeterminado del formulario (evita recargar la página)
     event.preventDefault();
     {/*console.log(origen);
-  console.log(destino);*/}
+    console.log(destino);*/}
+    // Abre una nueva ventana en la ruta /clienteAceptaSolicitud en la misma pestaña
     window.open('/clienteAceptaSolicitud', '_self');
   };
 
+  // Renderizado del componente
   return (
     <div className='bg-[#007bf1] flex flex-col items-center h-screen w-screen'>
+      
+      {/* Encabezado con botones */}
       <div className='flex w-full justify-between'>
         <button>
           <img
@@ -35,23 +43,33 @@ export const SolicitarServicioPasajero = () => {
           />
         </button>
       </div>
+      
+      {/* Contenedor principal con formulario */}
       <div className='h-[644px] w-[1144px] m-10 bg-[url(/img/MapaFull.png)] rounded-sm'>
         <div className='bg-white rounded-lg mx-10 mt-80 text-center'>
+          
+          {/* Título del formulario */}
           <span className="[font-family:'Roboto-Bold',Helvetica] font-bold text-black text-3xl">
             Solicitar Servicio
           </span>
+          
+          {/* Etiqueta y campo para indicar que es un servicio para pasajero */}
           <div className='flex justify-center'>
             <img alt='Punto' src='/img/Punto.png' />
             <span className="[font-family:'Roboto-Bold',Helvetica] text-black text-2xl ml-2">
               Pasajero
             </span>
           </div>
+          
+          {/* Sección de la ruta */}
           <div className='flex p-5'>
             <span className="[font-family:'Roboto-Regular',Helvetica] font-normal text-black text-2xl tracking-[0] leading-[normal] whitespace-nowrap">
               Ruta
             </span>
             <div className='w-full h-1 bottom-0 m-4 bg-[#d9d9d9]' />
           </div>
+          
+          {/* Campos de entrada para origen y destino */}
           <div className='flex justify-center m-2'>
             <img
               className=' w-[27px] h-[32px] top-0 left-0 object-cover'
@@ -86,6 +104,8 @@ export const SolicitarServicioPasajero = () => {
               value={destino}
             />
           </div>
+         
+          {/* Botón para enviar la solicitud */}
           <button
             className='m-4 px-5 py-1  bg-[#0979ea] rounded-lg text-[#f4f0f0] text-2xl hover:bg-[#0994ea]'
             onClick={handleSubmit}
@@ -98,4 +118,5 @@ export const SolicitarServicioPasajero = () => {
   );
 };
 
+// Exporta el componente SolicitarServicioPasajero por defecto
 export default SolicitarServicioPasajero;

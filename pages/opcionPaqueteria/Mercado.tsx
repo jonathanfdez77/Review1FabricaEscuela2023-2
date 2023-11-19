@@ -1,34 +1,42 @@
-import React from 'react';
+// Importa el hook useState desde React
 import { useState } from 'react';
 
+// Definición del componente funcional Mercado
 export const Mercado = () => {
+  // Estados para manejar los valores de origen, destino y condiciones
   const [origen, setOrigen] = useState('');
   const [destino, setDestino] = useState('');
   const [condiciones, setCondiciones] = useState('');
 
+  // Función que maneja la solicitud del servicio al hacer clic en el botón 'Solicitar'
   const handleAccept = (event: React.MouseEvent<HTMLButtonElement>) => {
+    // Previene el comportamiento predeterminado del formulario (evita recargar la página)
     event.preventDefault();
+    // Muestra una alerta indicando que el servicio ha sido solicitado
     alert('Servicio Solicitado');
   };
 
-  {
-    /*const handleReject = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    window.open('/solicitarServicioPasajero', '_self');
-  };*/
-}
+    /*{
+      const handleReject = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+        window.open('/solicitarServicioPasajero', '_self');
+      };*/
+
+  // Funciones que manejan la apertura de diferentes opciones de paquetería al hacer clic en los botones correspondientes
   const handleSubmitViaje = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     {/*console.log(origen);
      console.log(destino);*/}
     window.open('/opcionPaqueteria/Viaje', '_self');
   };
+
   const handleSubmitMercado = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     {/*console.log(origen);
      console.log(destino);*/}
     window.open('/opcionPaqueteria/Mercado', '_self');
   };
+
   const handleSubmitPaquete = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     {/*console.log(origen);
@@ -36,9 +44,14 @@ export const Mercado = () => {
     window.open('/opcionPaqueteria/Paquete', '_self');
   };
 
+  // Renderizado del componente
   return (
     <div className='bg-[#007bf1] flex flex-row justify-center w-full'>
+
+      {/* Contenedor principal */}
       <div className='bg-[#007bf1] w-[1280px] h-[832px] relative'>
+
+      {/* Botones del menú superior */}
       <button>
           <img
             className='absolute w-[76px] h-[75px] top-[26px] left-[55px] hover:opacity-80'
@@ -56,7 +69,11 @@ export const Mercado = () => {
             src='/img/accessibility_new.png'
           />
         </button>
+
+        {/* Mapa y elementos en el mapa */}
         <div className='absolute w-[1144px] h-[665px] top-[105px] left-[68px] bg-[url(/img/MapaFull.png)] bg-cover bg-[50%_50%] rounded-sm'>
+         
+          {/* Elementos en el mapa como círculos y rectángulos */}
           <img
             className='absolute w-[402px] h-[187px] top-[234px] left-[343px]'
             alt='Ellipse'
@@ -64,6 +81,8 @@ export const Mercado = () => {
           />
           <div className='absolute w-[1057px] h-[354px] top-[270px] left-[47px] bg-white rounded-[31px] border border-solid border-[#007bf1]' />
           <div className='absolute w-[255px] h-[96px] top-[298px] left-[470px] bg-[#bed0ff] rounded-[10px] border-2 border-solid border-[#007bf1]' />
+          
+          {/* Botones para seleccionar el tipo de paquetería */}
           <div className='inline-flex items-center gap-[182px] absolute top-[313px] left-[156px]'>
             <button
               onClick={handleSubmitViaje}
@@ -79,6 +98,8 @@ export const Mercado = () => {
               />
             </div>
             </button>
+           
+            {/* ... (código similar para Mercado y Paquete) */}
             <button
               onClick={handleSubmitMercado}
             > 
@@ -108,6 +129,8 @@ export const Mercado = () => {
               </div>
             </button>
           </div>
+          
+          {/* Inputs para origen y destino */}
           <img
             className='absolute w-[32px] h-[32px] top-[511px] left-[91px]'
             alt='Location on'
@@ -142,6 +165,8 @@ export const Mercado = () => {
               value={origen}
             />
           </div>
+          
+          {/* Input para condiciones */}
           <div className='absolute w-[399px] h-[79px] top-[466px] left-[645px] bg-white rounded-[10px] border border-solid border-[#979797] shadow-[0px_4px_4px_#00000040]' />
           <div className="absolute top-[477px] left-[663px] [font-family:'Roboto-Regular',Helvetica] font-normal text-[#676363] text-[24px] tracking-[0] leading-[normal] whitespace-nowrap">
             <input
@@ -152,6 +177,8 @@ export const Mercado = () => {
               value={condiciones}
             />
           </div>
+          
+          {/* Iconos y etiquetas para maletas y mascotas */}
           <img
             className='absolute w-[38px] h-[37px] top-[417px] left-[1005px]'
             alt='Luggage'
@@ -163,6 +190,8 @@ export const Mercado = () => {
           <div className="absolute top-[414px] left-[692px] [font-family:'Roboto-Regular',Helvetica] font-normal text-[#676363] text-[24px] tracking-[0] leading-[normal] whitespace-nowrap">
             Mascotas
           </div>
+          
+          {/* Botón para enviar la solicitud */}
           <img
             className='absolute w-[29px] h-[31px] top-[413px] left-[803px]'
             alt='Pets'
@@ -177,6 +206,8 @@ export const Mercado = () => {
               Solicitar
             </button>    
           </div>
+          
+          {/* Botones de selección para maletas y mascotas */}
           <button>
             <div className='absolute w-[33px] h-[33px] top-[414px] left-[646px] bg-white rounded-[5px] border-2 border-solid border-black' />
           </button>
@@ -189,4 +220,5 @@ export const Mercado = () => {
   );
 };
 
+// Exporta el componente Mercado por defecto
 export default Mercado;
