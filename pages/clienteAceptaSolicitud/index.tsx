@@ -51,12 +51,11 @@ export const ClienteAceptaSolicitud = () => {
       {/* Contenedor principal con información de la solicitud */}
       <div className='h-[644px] w-[1144px] m-10 bg-[url(/img/MapaFull.png)] rounded-sm'>
         <div className='bg-white rounded-lg mx-10 mt-80 text-center'>
-
+          
           {/* Precio de la solicitud */}
           <span className="[font-family:'Roboto-Bold',Helvetica] font-bold text-black text-3xl">
             $30.000 COP
           </span>
-
           {/* Detalles del origen */}
           <div className='flex justify-center m-2'>
             <img
@@ -71,7 +70,6 @@ export const ClienteAceptaSolicitud = () => {
               Cl. 73 #73A-79, Pilarica, Medellín, Robledo, Medellín, Antioquia.
             </p>
           </div>
-
           {/* Detalles del destino */}
           <div className='flex justify-center m-2'>
             <img
@@ -86,7 +84,6 @@ export const ClienteAceptaSolicitud = () => {
               Cl. 67 #53-108, Aranjuez, Medellín, Aranjuez, Medellín, Antioquia.
             </p>
           </div>
-          
           {/* Botones para aceptar y rechazar la solicitud */}
           <button
             className='m-4 px-5 py-1  bg-[#0979ea] rounded-lg text-[#f4f0f0] text-2xl hover:bg-[#0994ea]'

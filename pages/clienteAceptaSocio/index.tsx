@@ -59,7 +59,7 @@ export const ClienteAceptaSocio = () => {
               </p>
             </div>
           </div>
-
+          
           {/* Información del socio y vehículo */}
           <span className="[font-family:'Roboto-Bold',Helvetica] font-bold text-black text-3xl">
             Chevrolet Sail
@@ -77,7 +77,6 @@ export const ClienteAceptaSocio = () => {
               (Modelo 2013. JHS-342)
             </p>
           </div>
-          
           {/* Botones para aceptar y rechazar al socio */}
           <button
             className='m-4 px-5 py-1  bg-[#0979ea] rounded-lg text-[#f4f0f0] text-2xl hover:bg-[#0994ea]'
